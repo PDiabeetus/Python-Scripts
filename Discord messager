@@ -1,0 +1,28 @@
+import requests
+import os
+
+content = input("Message:")
+os.system('cls')
+
+payload = {'content': ""+content}
+
+URL1 = 'https://discord.com/api/v9/channels/'
+URL2 = input("Channel Code:")
+URL3 = '/messages'
+URL = ''.join([URL1, URL2, URL3])
+os.system('cls')
+
+token = "Your Discord Token Here"
+auth = {'authorization': ""+token}
+
+numberOfRequests = input("Number Of Requests:")
+xreq = int(numberOfRequests)
+os.system('cls')
+
+messageCount = 1
+
+for number in range(xreq):
+    print("Message Request #:", messageCount)
+    a = requests.post(""+URL, data=payload, headers=auth)
+    messageCount += 1
+    os.system('cls')
